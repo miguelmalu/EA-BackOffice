@@ -3,8 +3,8 @@
        <div class="col-lg-8 offset-lg-2">
            <div class="card">
                <div class="card-body text-center">
-                   <span class="title">LLISTAT DE USERS</span>
-                   <button class="btn btn-success float-end" routerLink="/crear-user">NOU USER</button>
+                   <span class="title">USER LIST</span>
+                   <button class="btn btn-success float-end" routerLink="/create-user">NEW USER</button>
                    <table *ngIf="listUsers.length > 0" class="table table-striped mt-3">
                     <thead>
                       <tr>
@@ -13,6 +13,9 @@
                         <th scope="col">Surname</th>
                         <th scope="col">Username</th>
                         <th scope="col">Password</th>
+                        <th scope="col">Phone</th>
+                        <th scope="col">Mail</th>
+                        <th scope="col">Creation Date</th>
                         <th scope="col"></th>
                       </tr>
                     </thead>
@@ -23,14 +26,17 @@
                         <td>{{ user.surname }}</td>
                         <td>{{ user.username }}</td>
                         <td>{{ user.password }}</td>
+                        <td>{{ user.phone }}</td>
+                        <td>{{ user.mail }}</td>
+                        <td>{{ user.creationDate }}</td>
                         <td>
-                            <i [routerLink]="['/editar-user', user.name]" class="fa-solid fa-pen-to-square text-primary"></i>
+                            <i [routerLink]="['/edit-user', user.name]" class="fa-solid fa-pen-to-square text-primary"></i>
                             <i (click)="deleteUser(user.name)" class="fa-solid fa-trash text-danger"></i>
                         </td>
                       </tr>
                     </tbody>
                   </table>
-                  <h5 style="text-align: start; margin-top: 10px;" *ngIf="listUsers.length == 0">No hi ha users a la base de dades</h5>
+                  <h5 style="text-align: start; margin-top: 10px;" *ngIf="listUsers.length == 0">There are no users in the database</h5>
                </div>
            </div>
        </div>

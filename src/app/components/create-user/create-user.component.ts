@@ -4,18 +4,19 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { empty, isEmpty } from 'rxjs';
 
 import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/service/user.service';
 
 @Component({
-  selector: 'app-crear-user',
-  templateUrl: './crear-user.component.html',
-  styleUrls: ['./crear-user.component.css']
+  selector: 'app-create-user',
+  templateUrl: './create-user.component.html',
+  styleUrls: ['./create-user.component.css']
 })
-export class CrearUserComponent implements OnInit {
+export class CreateUserComponent implements OnInit {
   userForm: FormGroup;
-  title = "Crear User";
+  title = "Create User";
   name: string | null;
 
   constructor(private fb: FormBuilder, 
@@ -28,6 +29,8 @@ export class CrearUserComponent implements OnInit {
       surname: ['', Validators.required],
       username: ['', Validators.required],
       password: ['', Validators.required],
+      phone: [],
+      mail: [],
     });
     
     this.name = this.aRouter.snapshot.paramMap.get('name');
@@ -44,12 +47,14 @@ export class CrearUserComponent implements OnInit {
       surname: this.userForm.get('surname')?.value,
       username: this.userForm.get('username')?.value,
       password: this.userForm.get('password')?.value,
+      phone: this.userForm.get('phone')?.value,
+      mail: this.userForm.get('mail')?.value,
     }
 
     if(this.name !== null){
       // Edit user
       this._userService.editUser(this.name, user).subscribe(data => {
-        this.toastr.info('El user ha estat editat amb exit!', 'User Editat');
+        this.toastr.info('User successfully edited!', 'User edited');
         this.router.navigate(['/']);
       }, error => {
         console.log(error);
@@ -60,7 +65,7 @@ export class CrearUserComponent implements OnInit {
       // Add user
       console.log(user);
       this._userService.addUser(user).subscribe(data => {
-        this.toastr.success('El user ha estat creat amb exit!', 'User Creat');
+        this.toastr.success('User successfully created!', 'User created');
         this.router.navigate(['/']);
       }, error => {
         console.log(error);
@@ -71,16 +76,17 @@ export class CrearUserComponent implements OnInit {
 
   editUser() {
     if(this.name !== null) {
-      this.title = 'Editar user';
+      this.title = 'Edit user';
       this._userService.getUser(this.name).subscribe(data => {
         this.userForm.setValue({
           name: data.name,
           surname: data.surname,
           username: data.username,
           password: data.password,
+          phone: data.phone || null,
+          mail: data.mail || null,
         })
       })
     }
   }
-
 }

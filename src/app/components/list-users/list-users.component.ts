@@ -4,11 +4,11 @@ import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/service/user.service';
 
 @Component({
-  selector: 'app-listar-users',
-  templateUrl: './listar-users.component.html',
-  styleUrls: ['./listar-users.component.css']
+  selector: 'app-list-users',
+  templateUrl: './list-users.component.html',
+  styleUrls: ['./list-users.component.css']
 })
-export class ListarUsersComponent implements OnInit {
+export class ListUsersComponent implements OnInit {
   listUsers: User[] = [];
 
   constructor(private _userService: UserService,
@@ -29,7 +29,7 @@ export class ListarUsersComponent implements OnInit {
 
   deleteUser(name: string) {
     this._userService.deleteUser(name).subscribe(data => {
-      this.toastr.error('El user ha estat eliminat amb exit', 'User eliminat');
+      this.toastr.error('User successfully deleted', 'User deleted');
       this.getUsers();
     }, error => {
       console.log(error);

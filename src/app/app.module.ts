@@ -8,14 +8,14 @@ import { HttpClientModule } from '@angular/common/http'
 
 // Components
 import { AppComponent } from './app.component';
-import { CrearUserComponent } from './components/crear-user/crear-user.component';
-import { ListarUsersComponent } from './components/listar-users/listar-users.component';
+import { CreateUserComponent } from './components/create-user/create-user.component';
+import { ListUsersComponent } from './components/list-users/list-users.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CrearUserComponent,
-    ListarUsersComponent
+    CreateUserComponent,
+    ListUsersComponent
   ],
   imports: [
     BrowserModule,

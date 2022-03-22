@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Action } from 'rxjs/internal/scheduler/Action';
 import { Activity } from 'src/app/models/activity';
+import { User } from 'src/app/models/user';
 import { ActivityService } from 'src/app/service/activity.service';
+import { Toast, ToastrComponentlessModule, ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-list-activities',
@@ -12,11 +14,11 @@ export class ListActivitiesComponent implements OnInit {
 
   listActivities: Activity[] = [];
 
-  constructor(private _activityService: ActivityService) { 
+  constructor(private _activityService: ActivityService, private toastr: ToastrService) { 
 
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void {   
     this.getActivities();
   }
 
@@ -25,6 +27,15 @@ export class ListActivitiesComponent implements OnInit {
       console.log("getActivities() successful");
       console.log(data);
       this.listActivities = data;
+    }, error => {
+      console.log(error);
+    })
+  }
+
+  deleteActivity(nameActivity: string){
+    this._activityService.deleteActivity(nameActivity).subscribe(data => {
+      this.toastr.error('Activity successfully deleted', 'Activity deleted');
+      this.getActivities();
     }, error => {
       console.log(error);
     })

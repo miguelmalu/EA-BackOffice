@@ -26,7 +26,10 @@
                                 <!--<td>{{activity.date}}</td>-->
                                 <td>{{activity.description}}</td>
                                 <td>{{activity.users.length}}</td>
-                                <td></td>
+                                <td>
+                                    <i class="fa-solid fa-pen-to-square text-primary"></i>
+                                    <i (click)="deleteActivity(activity.name)" class="fa-solid fa-trash text-danger"></i>
+                                </td>
                             </tr>
                         </tbody>
                     </table>

@@ -1,6 +1,7 @@
 import { User } from "./user"
 
 export class Activity{
+    _id?: string;
     name: string;
     description: string;
     organizer: User;
@@ -14,9 +15,9 @@ export class Activity{
         this.name = name;
         this.description = description;
         this.organizer = organizer;
-        this.users = users;
         this.language = language;
         this.location = location;
+        this.users = users;
         //this.ratings = ratings;
         //this.messages = messages;
     }

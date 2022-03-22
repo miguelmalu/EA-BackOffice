@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CreateActivityComponent } from './components/create-activity/create-activity.component';
 
 // Components
 import { CreateUserComponent } from './components/create-user/create-user.component';
@@ -12,6 +13,8 @@ const routes: Routes = [
   { path: 'create-user', component: CreateUserComponent},
   { path: 'edit-user/:name', component: CreateUserComponent},
   { path: 'list-activities', component: ListActivitiesComponent},
+  { path: 'create-activity', component: CreateActivityComponent},
+  { path: 'edit-activity/:nameActivity', component: CreateActivityComponent},
   { path: '**', redirectTo: '', pathMatch: 'full'} // In case of a wrong URL, the code redirects to the main path
 ];
 

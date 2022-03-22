@@ -7,7 +7,8 @@ import { ListUsersComponent } from './components/list-users/list-users.component
 
 // Routes
 const routes: Routes = [
-  { path: '', component: ListUsersComponent},
+  { path: '', redirectTo: '/list-users', pathMatch: 'full'},
+  { path: 'list-users', component: ListUsersComponent},
   { path: 'create-user', component: CreateUserComponent},
   { path: 'edit-user/:name', component: CreateUserComponent},
   { path: '**', redirectTo: '', pathMatch: 'full'} // In case of a wrong URL, the code redirects to the main path

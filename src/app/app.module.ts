@@ -10,12 +10,17 @@ import { HttpClientModule } from '@angular/common/http'
 import { AppComponent } from './app.component';
 import { CreateUserComponent } from './components/create-user/create-user.component';
 import { ListUsersComponent } from './components/list-users/list-users.component';
+import { CreateRatingsComponent } from './components/create-ratings/create-ratings.component';
+import { ListRatingsComponent } from './components/list-ratings/list-ratings.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     CreateUserComponent,
-    ListUsersComponent
+    ListUsersComponent,
+    CreateRatingsComponent,
+    ListRatingsComponent
   ],
   imports: [
     BrowserModule,

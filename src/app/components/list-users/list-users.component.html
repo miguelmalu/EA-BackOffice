@@ -16,6 +16,13 @@
                           <th scope="col">Password</th>
                           <th scope="col">Phone</th>
                           <th scope="col">Mail</th>
+                          <th scope="col">Languages</th>
+                          <th scope="col">Location</th>
+                          <th scope="col">Photo</th>
+<!--                           <th scope="col">Personal Ratings</th>
+                          <th scope="col">Activities Organized</th>
+                          <th scope="col">Activities</th>
+                          <th scope="col">Messages</th> -->
                           <th scope="col">Creation Date</th>
                           <th scope="col"></th>
                         </tr>
@@ -29,6 +36,13 @@
                           <td>{{ user.password }}</td>
                           <td>{{ user?.phone }}</td>
                           <td>{{ user?.mail }}</td>
+                          <td>{{ user.languages }}</td>
+                          <td>{{ user?.location }}</td>
+                          <td>{{ user?.photo }}</td>
+<!--                           <td>{{ user?.personalRatings }}</td>
+                          <td>{{ user.activitiesOrganized }}</td>
+                          <td>{{ user?.activities }}</td>
+                          <td>{{ user?.messages }}</td> -->
                           <td>{{ user.creationDate }}</td>
                           <td>
                               <i [routerLink]="['/edit-user', user.name]" class="fa-solid fa-pen-to-square text-primary"></i>

@@ -31,6 +31,9 @@ export class CreateUserComponent implements OnInit {
       password: ['', Validators.required],
       phone: [],
       mail: [],
+      languages: [],
+      location: [],
+      photo: [],
     });
     
     this.name = this.aRouter.snapshot.paramMap.get('name');
@@ -49,6 +52,9 @@ export class CreateUserComponent implements OnInit {
       password: this.userForm.get('password')?.value,
       phone: this.userForm.get('phone')?.value,
       mail: this.userForm.get('mail')?.value,
+      languages: this.userForm.get('languages')?.value,
+      location: this.userForm.get('location')?.value,
+      photo: this.userForm.get('photo')?.value,
     }
 
     if(this.name !== null){
@@ -83,8 +89,11 @@ export class CreateUserComponent implements OnInit {
           surname: data.surname,
           username: data.username,
           password: data.password,
-          phone: data.phone || null,
-          mail: data.mail || null,
+          phone: data.phone /* || null */,
+          mail: data.mail /* || null */,
+          languages: data.languages,
+          location: data.location,
+          photo: data.photo,
         })
       })
     }

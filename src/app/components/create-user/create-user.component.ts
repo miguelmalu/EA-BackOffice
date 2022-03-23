@@ -55,7 +55,7 @@ export class CreateUserComponent implements OnInit {
       // Edit user
       this._userService.editUser(this.name, user).subscribe(data => {
         this.toastr.info('User successfully edited!', 'User edited');
-        this.router.navigate(['/']);
+        this.router.navigate(['/list-users']);
       }, error => {
         console.log(error);
         this.userForm.reset();
@@ -66,7 +66,7 @@ export class CreateUserComponent implements OnInit {
       console.log(user);
       this._userService.addUser(user).subscribe(data => {
         this.toastr.success('User successfully created!', 'User created');
-        this.router.navigate(['/']);
+        this.router.navigate(['/list-users']);
       }, error => {
         console.log(error);
         this.userForm.reset();

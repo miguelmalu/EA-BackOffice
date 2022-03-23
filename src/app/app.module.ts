@@ -11,13 +11,15 @@ import { AppComponent } from './app.component';
 import { CreateUserComponent } from './components/create-user/create-user.component';
 import { ListUsersComponent } from './components/list-users/list-users.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
+import { LoginUserComponent } from './components/login-user/login-user.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CreateUserComponent,
     ListUsersComponent,
-    NavigationComponent
+    NavigationComponent,
+    LoginUserComponent
   ],
   imports: [
     BrowserModule,

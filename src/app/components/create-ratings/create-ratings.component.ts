@@ -25,6 +25,7 @@ export class CreateRatingsComponent implements OnInit {
               private _ratingService: RatingService,
               private aRouter: ActivatedRoute) { 
     this.ratingForm = this.fb.group({
+      tittle: ['', Validators.required],
       rater: ['', Validators.required],
       userRated: ['', Validators.required],
       activityRated: ['', Validators.required],
@@ -41,6 +42,7 @@ export class CreateRatingsComponent implements OnInit {
 
   addRating(){
     const rating: Rating = {
+      tittle: this.ratingForm.get('tittle')?.value,
       rater: this.ratingForm.get('rater')?.value,
       userRated: this.ratingForm.get('userRated')?.value,
       //activityRated: this.ratingForm.get('activityRated')?.value,
@@ -74,6 +76,7 @@ export class CreateRatingsComponent implements OnInit {
       this.tittle = 'Edit Rating';
       this._ratingService.getRatingByName(this.name).subscribe(data => {
         this.ratingForm.setValue({
+          tittle: data.tittle,
           rater: data.rater,
           userRated: data.userRated,
           //activityRated: data.activityRated,

@@ -12,6 +12,7 @@ import { CreateUserComponent } from './components/create-user/create-user.compon
 import { ListUsersComponent } from './components/list-users/list-users.component';
 import { CreateRatingsComponent } from './components/create-ratings/create-ratings.component';
 import { ListRatingsComponent } from './components/list-ratings/list-ratings.component';
+import { ListsComponent } from './components/lists/lists.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { ListRatingsComponent } from './components/list-ratings/list-ratings.com
     CreateUserComponent,
     ListUsersComponent,
     CreateRatingsComponent,
-    ListRatingsComponent
+    ListRatingsComponent,
+    ListsComponent
   ],
   imports: [
     BrowserModule,

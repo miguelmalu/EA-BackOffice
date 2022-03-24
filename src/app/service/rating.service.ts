@@ -15,8 +15,8 @@ export class RatingService {
     return this.http.get<Rating[]>(this.url + '/ratings');
   }
 
-  deleteRating(name: string): Observable<string> {
-    return this.http.delete(this.url + '/ratings/' + name, {responseType: 'text'})
+  deleteRating(tittle: string): Observable<string> {
+    return this.http.delete(this.url + '/ratings/' + tittle, {responseType: 'text'})
   }
 
   addRating(user: Rating): Observable<string> {

@@ -34,9 +34,10 @@ export class ListActivitiesComponent implements OnInit {
 
   deleteActivity(nameActivity: string){
     this._activityService.deleteActivity(nameActivity).subscribe(data => {
-      this.toastr.error('Activity successfully deleted', 'Activity deleted');
+      this.toastr.success('Activity successfully deleted', 'Activity deleted');
       this.getActivities();
     }, error => {
+      this.toastr.error("Activity can not be deleted, please try again","Error deleting activity");
       console.log(error);
     })
   }

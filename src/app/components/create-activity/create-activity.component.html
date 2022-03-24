@@ -30,7 +30,7 @@
                                 class="form-control form-control-lg" placeholder="Language">
                             <div class="text-danger"
                                 *ngIf="activityForm.get('language')?.hasError('required') && activityForm.get('language')?.touched">
-                                <span>Password is required</span>
+                                <span>Language is required</span>
                              </div>
                         </div>
                         <div class="mb-3">
@@ -38,11 +38,11 @@
                                 class="form-control form-control-lg" placeholder="Location">
                             <div class="text-danger"
                                 *ngIf="activityForm.get('location')?.hasError('required') && activityForm.get('location')?.touched">
-                                <span>Password is required</span>
+                                <span>Location is required</span>
                              </div>
                         </div>
                         <div class="mb-3">
-                            <button routerLink="/" class="btn btn-secondary btn-lg float-start">BACK</button>
+                            <button routerLink="/list-activities" class="btn btn-secondary btn-lg float-start">BACK</button>
                             <button type="submit" [disabled]="activityForm.invalid" class="btn btn-success btn-lg float-end">SUBMIT</button>
                         </div>
                     </form>

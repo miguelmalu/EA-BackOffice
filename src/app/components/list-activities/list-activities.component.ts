@@ -4,6 +4,7 @@ import { Activity } from 'src/app/models/activity';
 import { User } from 'src/app/models/user';
 import { ActivityService } from 'src/app/service/activity.service';
 import { Toast, ToastrComponentlessModule, ToastrService } from 'ngx-toastr';
+import { UserService } from 'src/app/service/user.service';
 
 @Component({
   selector: 'app-list-activities',
@@ -14,7 +15,7 @@ export class ListActivitiesComponent implements OnInit {
 
   listActivities: Activity[] = [];
 
-  constructor(private _activityService: ActivityService, private toastr: ToastrService) { 
+  constructor(private _activityService: ActivityService, private toastr: ToastrService, private _userService: UserService) { 
 
   }
 
@@ -33,13 +34,38 @@ export class ListActivitiesComponent implements OnInit {
   }
 
   deleteActivity(nameActivity: string){
-    this._activityService.deleteActivity(nameActivity).subscribe(data => {
-      this.toastr.success('Activity successfully deleted', 'Activity deleted');
-      this.getActivities();
-    }, error => {
-      this.toastr.error("Activity can not be deleted, please try again","Error deleting activity");
-      console.log(error);
-    })
+    const confirmDelete = confirm("Activity "+nameActivity+" will be deleted, do you want to continue?");
+    if(confirmDelete===true){
+      this._activityService.deleteActivity(nameActivity).subscribe(data => {
+        this.toastr.success('Activity successfully deleted', 'Activity deleted');
+        this.getActivities();
+      }, error => {
+        this.toastr.error("Activity can not be deleted, please try again","Error deleting activity");
+        console.log(error);
+      })
+    }    
+  }
+
+  addUserActivity(activity:Activity){
+    const username = prompt("Please enter the name of the user participating on this activity");
+    if(username!==null && username!==""){
+      this._userService.getUser(username).subscribe(data=>{
+        const user = data;
+        activity.users.push(user);
+        this._activityService.editActivity(activity,activity.name).subscribe(data => {
+          this.toastr.success("User "+username+" added correctly to activity "+activity.name,"Used added!");
+        }, error => {
+          this.toastr.error("The user can not be added due to an error with the activity","User not added")
+        });
+      }, error => {
+        this.toastr.error("The user introduced doesn't exist, try again","Error in user name")
+      })
+
+    }
+    else{
+      this.toastr.error("Please enter a user name","Error");
+    }
+
   }
 
 }

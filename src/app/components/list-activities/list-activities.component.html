@@ -23,9 +23,10 @@
                                 <td>{{activity.language}}</td>
                                 <td>{{activity.organizer.name}}</td>
                                 <td>{{activity.location}}</td>
-                                <td>{{activity.description}}</td>
+                                <td>{{activity.description | truncate}}</td>
                                 <td>{{activity.users.length}}</td>                                
                                 <td>
+                                    <i (click)="addUserActivity(activity)" class="fa-solid fa-circle-plus text-success"></i>
                                     <i class="fa-solid fa-pen-to-square text-primary" [routerLink]="['/edit-activity',activity.name]"></i>
                                     <i (click)="deleteActivity(activity.name)" class="fa-solid fa-trash text-danger"></i>
                                 </td>

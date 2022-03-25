@@ -32,4 +32,5 @@ export class ActivityService {
     return this.http.delete(this.url + "/" + nameActivity, {responseType: 'text'});
   }
 
+
 }

@@ -63,7 +63,8 @@ export class CreateActivityComponent implements OnInit {
         location: location      
       }
 
-
+      console.log(activity);
+      
       if(this.nameEditedActivity!==null){
         this._activityService.editActivity(activity, nameActivity).subscribe(data => {
           this.toastr.success("Activity succesfully modified","Activity modified!");

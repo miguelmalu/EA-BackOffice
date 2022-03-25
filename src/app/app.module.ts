@@ -12,6 +12,7 @@ import { CreateUserComponent } from './components/create-user/create-user.compon
 import { ListUsersComponent } from './components/list-users/list-users.component';
 import { ListActivitiesComponent } from './components/list-activities/list-activities.component';
 import { CreateActivityComponent } from './components/create-activity/create-activity.component';
+import { TruncatePipePipe } from './pipes/truncate-pipe.pipe';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { CreateActivityComponent } from './components/create-activity/create-act
     CreateUserComponent,
     ListUsersComponent,
     ListActivitiesComponent,
-    CreateActivityComponent
+    CreateActivityComponent,
+    TruncatePipePipe
   ],
   imports: [
     BrowserModule,

@@ -3,8 +3,7 @@
         <div class="col-lg-8 offset-lg-2">
             <div class="card">
                 <div class="card-body text-center">
-                    <span class="title">MESSAGES LIST</span>
-                    <!--<button class="btn btn-success float-end" routerLink="/create-user">NEW USER</button> -->
+                    <span class="title">MESSAGE LIST</span>
                     <table *ngIf="listMessages.length > 0" class="table table-striped mt-3">
                      <thead>
                        <tr>
@@ -26,13 +25,15 @@
                          <td>{{ message.receiver?.username}}</td>
                          <td>{{ message.activity?.name}}</td>
                          <td>
-                        <!-- <i [routerLink]="['/edit-user', user.name]" class="fa-solid fa-pen-to-square text-primary"></i> -->
                              <i (click)="deleteMessage(message._id!)" class="fa-solid fa-trash text-danger"></i>
                          </td>
                        </tr>
                      </tbody>
                    </table>
                    <h5 style="text-align: start; margin-top: 10px;" *ngIf="listMessages.length == 0">There are no messages in the database</h5>
+                   <div class="mb-3">
+                    <button routerLink="/create-message" class="btn btn-secondary btn-lg float-start">CREATE MESSAGE</button>
+                </div>
                 </div>
             </div>
         </div>

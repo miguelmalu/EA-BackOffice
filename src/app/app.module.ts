@@ -13,17 +13,18 @@ import { ListUsersComponent } from './components/list-users/list-users.component
 import { ListMessagesComponent } from './components/list-messages/list-messages.component';
 import { ListMessagesReceiverComponent } from './components/list-messages-receiver/list-messages-receiver.component';
 import { ListMessagesActivityComponent } from './components/list-messages-activity/list-messages-activity.component';
-//import { CreateMessageComponent } from './components/create-message/create-message.component';
+import { CreateMessageComponent } from './components/create-message/create-message.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CreateUserComponent,
+    CreateMessageComponent,
     ListUsersComponent,
     ListMessagesComponent,
     ListMessagesReceiverComponent,
     ListMessagesActivityComponent,
-    //CreateMessageComponent
+    
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,4 @@
-/*import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CreateMessageComponent } from './create-message.component';
 
@@ -23,4 +23,3 @@ describe('CreateMessageComponent', () => {
     expect(component).toBeTruthy();
   });
 });
-*/

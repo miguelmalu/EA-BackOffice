@@ -28,15 +28,11 @@ export class MessageService {
     return this.http.delete(this.url + '/messages/' + id, {responseType: 'text'})
   }
 
-  addMessageUser(message: string, sender: string, receiver: string): Observable<string> {
-    return this.http.post(this.url + '/messages/receiver', message + sender + receiver, {responseType: 'text'}) ;
-  }
-/*
-  getUser(it: string): Observable<User> {
-    return this.http.get<User>(this.url + '/users/' + name);
+  addMessageUser(message: Message): Observable<string> {
+    return this.http.post(this.url + '/messages/user', message, {responseType: 'text'});
   }
 
-  editUser(name: string, user: User): Observable<string> {
-    return this.http.put(this.url + '/users/' + name, user, {responseType: 'text'});
-  }*/
+  addMessageActivity(message: Message): Observable<string> {
+    return this.http.post(this.url + '/messages/activity', message, {responseType: 'text'});
+  }
 }

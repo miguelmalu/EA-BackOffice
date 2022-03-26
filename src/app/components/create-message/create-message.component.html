@@ -1,4 +1,5 @@
-<!--<div class="container mt-5">
+<p>Stamos</p>
+<div class="container mt-5">
     <div class="class row">
         <div class="col-lg-6 offset-lg-3">
             <div class="card">
@@ -24,14 +25,15 @@
                         <div class="mb-3">
                             <input type="text" formControlName="receiver"
                                 class="form-control form-control-lg" placeholder="Receiver">
-                            <div class="text-danger"
-                                *ngIf="messageForm.get('receiver')?.hasError('required') && messageForm.get('receiver')?.touched">
-                                <span>Receiver is required</span>
-                            </div>
                         </div>
                         <div class="mb-3">
+                            <input type="text" formControlName="activity"
+                                class="form-control form-control-lg" placeholder="Activity">
+                        </div>
+                       
+                        <div class="mb-3">
                             <button routerLink="/" class="btn btn-secondary btn-lg float-start">BACK</button>
-                            <button type="submit" [disabled]="messageForm.invalid" class="btn btn-success btn-lg float-end">SUBMIT</button>
+                            <button type="submit" class="btn btn-success btn-lg float-end">SUBMIT</button>
                         </div>
                     </form>
                 </div>
@@ -39,4 +41,3 @@
         </div>
     </div>
 </div>
--->

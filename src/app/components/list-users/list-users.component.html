@@ -32,6 +32,7 @@
                         <td>
                             <i [routerLink]="['/edit-user', user.name]" class="fa-solid fa-pen-to-square text-primary"></i>
                             <i (click)="deleteUser(user.name)" class="fa-solid fa-trash text-danger"></i>
+                            <i [routerLink]="['/message-list-receiver', user._id]" class="fa-solid fa-message text-primary"></i>
                         </td>
                       </tr>
                     </tbody>

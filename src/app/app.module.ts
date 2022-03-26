@@ -10,12 +10,20 @@ import { HttpClientModule } from '@angular/common/http'
 import { AppComponent } from './app.component';
 import { CreateUserComponent } from './components/create-user/create-user.component';
 import { ListUsersComponent } from './components/list-users/list-users.component';
+import { ListMessagesComponent } from './components/list-messages/list-messages.component';
+import { ListMessagesReceiverComponent } from './components/list-messages-receiver/list-messages-receiver.component';
+import { ListMessagesActivityComponent } from './components/list-messages-activity/list-messages-activity.component';
+//import { CreateMessageComponent } from './components/create-message/create-message.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CreateUserComponent,
-    ListUsersComponent
+    ListUsersComponent,
+    ListMessagesComponent,
+    ListMessagesReceiverComponent,
+    ListMessagesActivityComponent,
+    //CreateMessageComponent
   ],
   imports: [
     BrowserModule,

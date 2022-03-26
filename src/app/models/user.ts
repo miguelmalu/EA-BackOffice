@@ -1,3 +1,5 @@
+import { Message } from "./message";
+
 export class User {
     _id?: number;
     name: string;
@@ -7,6 +9,7 @@ export class User {
     phone?: string;
     mail?: string;
     creationDate?: Date;
+    messages?: Message[] = [];
 
     constructor(name: string, surname: string, username:string, password: string, phone: string, mail: string) {
         this.name = name;

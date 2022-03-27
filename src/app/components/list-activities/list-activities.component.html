@@ -29,6 +29,7 @@
                                     <i (click)="addUserActivity(activity)" class="fa-solid fa-circle-plus text-success"></i>
                                     <i class="fa-solid fa-pen-to-square text-primary" [routerLink]="['/edit-activity',activity.name]"></i>
                                     <i (click)="deleteActivity(activity.name)" class="fa-solid fa-trash text-danger"></i>
+                                    <i [routerLink]="['/message-list-activity’, activity._id]" class="fa-solid fa-message text-primary"></i>
                                 </td>
                             </tr>
                         </tbody>

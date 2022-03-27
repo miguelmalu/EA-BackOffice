@@ -30,7 +30,7 @@
                             </div>
                         </div>
                         <div class="mb-3">
-                            <input type="text" formControlName="password"
+                            <input type="password" formControlName="password"
                                 class="form-control form-control-lg" placeholder="Password">
                             <div class="text-danger"
                                 *ngIf="userForm.get('password')?.hasError('required') && userForm.get('password')?.touched">
@@ -42,8 +42,12 @@
                                 class="form-control form-control-lg" placeholder="Phone">
                         </div>
                         <div class="mb-3">
-                            <input type="text" formControlName="mail"
+                            <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" formControlName="mail"
                                 class="form-control form-control-lg" placeholder="Mail">
+                            <!-- <div class="text-danger"
+                                *ngIf="userForm.get('mail')?.hasError('type') && userForm.get('mail')?.touched">
+                                <span>Wrong format</span>
+                             </div> -->
                         </div>
                         <div class="mb-3">
                             <input type="text" formControlName="languages"

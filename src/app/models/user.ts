@@ -15,11 +15,6 @@ export class User {
     messages?: Message[]; */
     creationDate?: Date;
 
-
-
-    
-    
-
     constructor(name: string, surname: string, username:string, password: string, phone: string,
         mail: string, languages: string[], location: string[], photo: string,
          /* personalRatings: Rating[], activitiesOrganized: Activities[], activities: Activities[], messages: Message[]*/) {

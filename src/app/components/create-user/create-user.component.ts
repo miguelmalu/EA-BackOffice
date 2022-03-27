@@ -52,10 +52,12 @@ export class CreateUserComponent implements OnInit {
       password: this.userForm.get('password')?.value,
       phone: this.userForm.get('phone')?.value,
       mail: this.userForm.get('mail')?.value,
-      languages: this.userForm.get('languages')?.value,
-      location: this.userForm.get('location')?.value,
+      languages: this.userForm.get('languages')?.value.replace(/ /g, "").split(','),
+      location: this.userForm.get('location')?.value.replace(/ /g, "").split(','),
       photo: this.userForm.get('photo')?.value,
     }
+
+    console.log(user);
 
     if(this.name !== null){
       // Edit user

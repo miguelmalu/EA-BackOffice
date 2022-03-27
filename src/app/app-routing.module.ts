@@ -26,7 +26,7 @@ const routes: Routes = [
   { path: 'edit-activity/:nameActivity', component: CreateActivityComponent},
   { path: 'list-ratings', component: ListRatingsComponent},
   { path: 'create-rating', component: CreateRatingsComponent},
-  { path: 'edit-rating/:name', component: CreateRatingsComponent},
+  { path: 'edit-rating/:title', component: CreateRatingsComponent},
   { path: 'message-list-receiver/:id', component: ListMessagesReceiverComponent},
   { path: 'message-list-activity/:id', component: ListMessagesActivityComponent},
   { path: 'create-message', component: CreateMessageComponent},

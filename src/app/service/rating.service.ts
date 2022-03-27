@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Rating } from '../models/rating';
+import { Activity } from '../models/activity';
+
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -19,8 +21,12 @@ export class RatingService {
     return this.http.delete(this.url + '/ratings/' + tittle, {responseType: 'text'})
   }
 
-  addRating(user: Rating): Observable<string> {
-    return this.http.post(this.url + '/ratings', user, {responseType: 'text'}) ;
+  addRatingUser(user: Rating): Observable<string> {
+    return this.http.post(this.url + '/ratings/ratinguser', user, {responseType: 'text'}) ;
+  }
+
+  addRatingActivity(activity: Rating): Observable<string> {
+    return this.http.post(this.url + '/ratings/ratingactivity', activity, {responseType: 'text'}) ;
   }
 
   getRatingByName(name: string): Observable<Rating> {

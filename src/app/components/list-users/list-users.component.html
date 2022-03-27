@@ -1,41 +1,57 @@
-<div class="container mt-5">
-   <div class="row">
-       <div class="col-lg-8 offset-lg-2">
+<div class="container-fluid mt-5">
+   <div class="row justify-content-center">
+       <div class="col">
            <div class="card">
                <div class="card-body text-center">
                    <span class="title">USER LIST</span>
                    <button class="btn btn-success float-end" routerLink="/create-user">NEW USER</button>
-                   <table *ngIf="listUsers.length > 0" class="table table-striped mt-3">
-                    <thead>
-                      <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Surname</th>
-                        <th scope="col">Username</th>
-                        <th scope="col">Password</th>
-                        <th scope="col">Phone</th>
-                        <th scope="col">Mail</th>
-                        <th scope="col">Creation Date</th>
-                        <th scope="col"></th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr *ngFor="let user of listUsers">
-                        <td>{{ user._id }}</td>
-                        <td>{{ user.name }}</td>
-                        <td>{{ user.surname }}</td>
-                        <td>{{ user.username }}</td>
-                        <td>{{ user.password }}</td>
-                        <td>{{ user.phone }}</td>
-                        <td>{{ user.mail }}</td>
-                        <td>{{ user.creationDate }}</td>
-                        <td>
-                            <i [routerLink]="['/edit-user', user.name]" class="fa-solid fa-pen-to-square text-primary"></i>
-                            <i (click)="deleteUser(user.name)" class="fa-solid fa-trash text-danger"></i>
-                        </td>
-                      </tr>
-                    </tbody>
-                  </table>
+                   <div class="table-responsive">
+                    <table *ngIf="listUsers.length > 0" class="table table-striped mt-3">
+                      <thead>
+                        <tr>
+                          <th scope="col">ID</th>
+                          <th scope="col">Name</th>
+                          <th scope="col">Surname</th>
+                          <th scope="col">Username</th>
+                          <th scope="col">Password</th>
+                          <th scope="col">Phone</th>
+                          <th scope="col">Mail</th>
+                          <th scope="col">Languages</th>
+                          <th scope="col">Location</th>
+                          <th scope="col">Photo</th>
+<!--                           <th scope="col">Personal Ratings</th>
+                          <th scope="col">Activities Organized</th>
+                          <th scope="col">Activities</th>
+                          <th scope="col">Messages</th> -->
+                          <th scope="col">Creation Date</th>
+                          <th scope="col"></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let user of listUsers">
+                          <td>{{ user._id }}</td>
+                          <td>{{ user.name }}</td>
+                          <td>{{ user.surname }}</td>
+                          <td>{{ user.username }}</td>
+                          <td>{{ user.password }}</td>
+                          <td>{{ user?.phone }}</td>
+                          <td>{{ user?.mail }}</td>
+                          <td>{{ user.languages }}</td>
+                          <td>{{ user?.location }}</td>
+                          <td>{{ user?.photo }}</td>
+<!--                           <td>{{ user?.personalRatings }}</td>
+                          <td>{{ user.activitiesOrganized }}</td>
+                          <td>{{ user?.activities }}</td>
+                          <td>{{ user?.messages }}</td> -->
+                          <td>{{ user.creationDate }}</td>
+                          <td>
+                              <i [routerLink]="['/edit-user', user.name]" class="fa-solid fa-pen-to-square text-primary"></i>
+                              <i (click)="deleteUser(user.name)" class="fa-solid fa-trash text-danger"></i>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
                   <h5 style="text-align: start; margin-top: 10px;" *ngIf="listUsers.length == 0">There are no users in the database</h5>
                </div>
            </div>

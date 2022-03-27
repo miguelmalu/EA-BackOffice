@@ -13,7 +13,7 @@ import { ListUsersComponent } from './components/list-users/list-users.component
 import { CreateRatingsComponent } from './components/create-ratings/create-ratings.component';
 import { ListRatingsComponent } from './components/list-ratings/list-ratings.component';
 import { ListsComponent } from './components/lists/lists.component';
-
+import { NavigationComponent } from './components/navigation/navigation.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +22,8 @@ import { ListsComponent } from './components/lists/lists.component';
     ListUsersComponent,
     CreateRatingsComponent,
     ListRatingsComponent,
-    ListsComponent
+    ListsComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,

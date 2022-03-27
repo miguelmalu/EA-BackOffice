@@ -10,7 +10,8 @@ import { CreateRatingsComponent } from './components/create-ratings/create-ratin
 
 // Routes
 const routes: Routes = [
-  { path: '', component: ListsComponent},
+  { path: '', redirectTo: '/list-users', pathMatch: 'full'},
+  { path: 'list-users', component: ListUsersComponent},
   { path: 'create-user', component: CreateUserComponent},
   { path: 'edit-user/:name', component: CreateUserComponent},
   { path: 'list-ratings', component: ListRatingsComponent},

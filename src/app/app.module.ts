@@ -14,6 +14,13 @@ import { ListMessagesComponent } from './components/list-messages/list-messages.
 import { ListMessagesReceiverComponent } from './components/list-messages-receiver/list-messages-receiver.component';
 import { ListMessagesActivityComponent } from './components/list-messages-activity/list-messages-activity.component';
 import { CreateMessageComponent } from './components/create-message/create-message.component';
+import { ListActivitiesComponent } from './components/list-activities/list-activities.component';
+import { CreateActivityComponent } from './components/create-activity/create-activity.component';
+import { TruncatePipePipe } from './pipes/truncate-pipe.pipe';
+import { CreateRatingsComponent } from './components/create-ratings/create-ratings.component';
+import { ListRatingsComponent } from './components/list-ratings/list-ratings.component';
+import { ListsComponent } from './components/lists/lists.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +31,14 @@ import { CreateMessageComponent } from './components/create-message/create-messa
     ListMessagesComponent,
     ListMessagesReceiverComponent,
     ListMessagesActivityComponent,
-    
+    ListUsersComponent,
+    ListActivitiesComponent,
+    CreateActivityComponent,
+    TruncatePipePipe,
+    CreateRatingsComponent,
+    ListRatingsComponent,
+    ListsComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,

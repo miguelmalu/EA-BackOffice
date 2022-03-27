@@ -4,11 +4,11 @@ import { User } from "./user"
 export class Activity{
     _id?: string;
     name: string;
-    description?: string;
-    organizer?: User;
-    users?: User[];
-    language?: string;
-    location?: string[];
+    description: string;
+    organizer: User;
+    users: User[];
+    language: string;
+    location: string[];
     //ratings: [{type: Schema.Types.ObjectId,cref: 'Rating'}],
     messages?: Message[];
 

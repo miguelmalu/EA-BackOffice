@@ -1,3 +1,4 @@
+import { Message } from "./message"
 import { User } from "./user"
 
 export class Activity{
@@ -9,9 +10,9 @@ export class Activity{
     language: string;
     location: string[];
     //ratings: [{type: Schema.Types.ObjectId,cref: 'Rating'}],
-    //messages: [{type: Schema.Types.ObjectId,cref: 'Message'}]
+    messages?: Message[];
 
-    constructor(name:string, description:string, organizer:User, users:User[], language:string, location:string[], /* ratings:Rating[], message:Message[]*/){
+    constructor(name:string, description:string, organizer:User, users:User[], language:string, location:string[], /* ratings:Rating[],*/ messages:Message[]){
         this.name = name;
         this.description = description;
         this.organizer = organizer;
@@ -19,6 +20,6 @@ export class Activity{
         this.location = location;
         this.users = users;
         //this.ratings = ratings;
-        //this.messages = messages;
+        this.messages = messages;
     }
 }

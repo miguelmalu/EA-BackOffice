@@ -6,9 +6,14 @@ import { CreateActivityComponent } from './components/create-activity/create-act
 import { CreateUserComponent } from './components/create-user/create-user.component';
 import { ListActivitiesComponent } from './components/list-activities/list-activities.component';
 import { ListUsersComponent } from './components/list-users/list-users.component';
+import { ListMessagesComponent } from './components/list-messages/list-messages.component';
+import { ListMessagesReceiverComponent } from './components/list-messages-receiver/list-messages-receiver.component';
+import { CreateMessageComponent } from './components/create-message/create-message.component';
+import { ListMessagesActivityComponent } from './components/list-messages-activity/list-messages-activity.component';
 import { ListRatingsComponent } from './components/list-ratings/list-ratings.component';
 import { ListsComponent } from './components/lists/lists.component';
 import { CreateRatingsComponent } from './components/create-ratings/create-ratings.component';
+
 
 // Routes
 const routes: Routes = [
@@ -22,6 +27,10 @@ const routes: Routes = [
   { path: 'list-ratings', component: ListRatingsComponent},
   { path: 'create-rating', component: CreateRatingsComponent},
   { path: 'edit-rating/:name', component: CreateRatingsComponent},
+  { path: 'message-list-receiver/:id', component: ListMessagesReceiverComponent},
+  { path: 'message-list-activity/:id', component: ListMessagesActivityComponent},
+  { path: 'create-message', component: CreateMessageComponent},
+  { path: 'list-messages', component: ListMessagesComponent},
   { path: '**', redirectTo: '', pathMatch: 'full'} // In case of a wrong URL, the code redirects to the main path
 ];
 

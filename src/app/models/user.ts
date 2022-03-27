@@ -1,3 +1,5 @@
+import { Message } from "./message";
+
 export class User {
     _id?: string;
     name: string;
@@ -14,6 +16,7 @@ export class User {
     activities?: Activities[];
     messages?: Message[]; */
     creationDate?: Date;
+    messages?: Message[] = [];
 
     constructor(name: string, surname: string, username:string, password: string, phone: string,
         mail: string, languages: string[], location: string[], photo: string,

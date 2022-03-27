@@ -10,6 +10,10 @@ import { HttpClientModule } from '@angular/common/http'
 import { AppComponent } from './app.component';
 import { CreateUserComponent } from './components/create-user/create-user.component';
 import { ListUsersComponent } from './components/list-users/list-users.component';
+import { ListMessagesComponent } from './components/list-messages/list-messages.component';
+import { ListMessagesReceiverComponent } from './components/list-messages-receiver/list-messages-receiver.component';
+import { ListMessagesActivityComponent } from './components/list-messages-activity/list-messages-activity.component';
+import { CreateMessageComponent } from './components/create-message/create-message.component';
 import { ListActivitiesComponent } from './components/list-activities/list-activities.component';
 import { CreateActivityComponent } from './components/create-activity/create-activity.component';
 import { TruncatePipePipe } from './pipes/truncate-pipe.pipe';
@@ -22,6 +26,11 @@ import { NavigationComponent } from './components/navigation/navigation.componen
   declarations: [
     AppComponent,
     CreateUserComponent,
+    CreateMessageComponent,
+    ListUsersComponent,
+    ListMessagesComponent,
+    ListMessagesReceiverComponent,
+    ListMessagesActivityComponent,
     ListUsersComponent,
     ListActivitiesComponent,
     CreateActivityComponent,

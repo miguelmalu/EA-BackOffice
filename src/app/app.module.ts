@@ -10,6 +10,9 @@ import { HttpClientModule } from '@angular/common/http'
 import { AppComponent } from './app.component';
 import { CreateUserComponent } from './components/create-user/create-user.component';
 import { ListUsersComponent } from './components/list-users/list-users.component';
+import { ListActivitiesComponent } from './components/list-activities/list-activities.component';
+import { CreateActivityComponent } from './components/create-activity/create-activity.component';
+import { TruncatePipePipe } from './pipes/truncate-pipe.pipe';
 import { CreateRatingsComponent } from './components/create-ratings/create-ratings.component';
 import { ListRatingsComponent } from './components/list-ratings/list-ratings.component';
 import { ListsComponent } from './components/lists/lists.component';
@@ -20,6 +23,9 @@ import { NavigationComponent } from './components/navigation/navigation.componen
     AppComponent,
     CreateUserComponent,
     ListUsersComponent,
+    ListActivitiesComponent,
+    CreateActivityComponent,
+    TruncatePipePipe,
     CreateRatingsComponent,
     ListRatingsComponent,
     ListsComponent,

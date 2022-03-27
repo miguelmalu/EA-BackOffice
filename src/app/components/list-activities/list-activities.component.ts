@@ -51,7 +51,9 @@ export class ListActivitiesComponent implements OnInit {
     if(username!==null && username!==""){
       this._userService.getUser(username).subscribe(data=>{
         const user = data;
+        console.log(user);
         activity.users.push(user);
+        console.log(activity);
         this._activityService.editActivity(activity,activity.name).subscribe(data => {
           this.toastr.success("User "+username+" added correctly to activity "+activity.name,"Used added!");
         }, error => {

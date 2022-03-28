@@ -54,17 +54,17 @@ export class CreateMessageComponent implements OnInit {
     console.log(message);
 
     if (message.receiver != null){
-      this._messageService.addMessageUser(message).subscribe(data => {
+      this._messageService.addMessageUserByName(message).subscribe(data => {
         this.toastr.success('Message successfully created!', 'Message created --> User');
-        this.router.navigate(['/']);
+        this.router.navigate(['/list-messages']);
       }, error => {
         console.log(error);
         this.messageForm.reset();
       })
     } else if (message.activity != null) {
-      this._messageService.addMessageActivity(message).subscribe(data => {
+      this._messageService.addMessageActivityByName(message).subscribe(data => {
         this.toastr.success('Message successfully created!', 'Message created --> Activity');
-        this.router.navigate(['/']);
+        this.router.navigate(['/list-messages']);
       }, error => {
         console.log(error);
         this.messageForm.reset();

@@ -14,24 +14,25 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class ListMessagesActivityComponent implements OnInit {
 
   listMessages: Message[] = [];
-  name: string | null;
+  id: string | null;
 
   constructor(private _messageService: MessageService,
     private router: Router, 
     private toastr: ToastrService,
     private aRouter: ActivatedRoute) { 
-      this.name = this.aRouter.snapshot.paramMap.get('id');
-      console.log(this.name);}
+      this.id = this.aRouter.snapshot.paramMap.get('id');
+      console.log(this.id);}
 
   ngOnInit(): void {
-    if (this.name != null)
-      this.getMessagesByActivity(this.name);
-    else
-      this.toastr.error('Name not found', 'Activities not found');
+    if (this.id != null)
+      this.getMessagesByActivity(this.id);
+    else{
+      this.toastr.error('Id not found', 'Messages not found');
+    }
   }
 
-  getMessagesByActivity(name: string) {
-    this._messageService.getMessagesByReceiver(name).subscribe(data => {
+  getMessagesByActivity(id: string) {
+    this._messageService.getMessagesByActivity(id).subscribe(data => {
       console.log(data);
       this.listMessages = data;
     }, error => {

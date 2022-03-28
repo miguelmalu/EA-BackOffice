@@ -1,9 +1,10 @@
-<div class="container mt-5">
-    <div class="row">
-        <div class="col-lg-8 offset-lg-2">
+<div class="container-fluid mt-5">
+  <div class="row justify-content-center">
+      <div class="col">
             <div class="card">
                 <div class="card-body text-center">
                     <span class="title">MESSAGE LIST</span>
+                    <button class="btn btn-success float-end" routerLink="/create-message">NEW MESSAGE</button> 
                     <table *ngIf="listMessages.length > 0" class="table table-striped mt-3">
                      <thead>
                        <tr>
@@ -31,9 +32,7 @@
                      </tbody>
                    </table>
                    <h5 style="text-align: start; margin-top: 10px;" *ngIf="listMessages.length == 0">There are no messages in the database</h5>
-                   <div class="mb-3">
-                    <button routerLink="/create-message" class="btn btn-secondary btn-lg float-start">CREATE MESSAGE</button>
-                </div>
+                   
                 </div>
             </div>
         </div>

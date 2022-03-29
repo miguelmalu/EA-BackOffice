@@ -1,4 +1,6 @@
 import { Message } from "./message";
+import { Rating } from "./rating";
+import { Activity } from "./activity";
 
 export class User {
     _id?: string;
@@ -12,15 +14,13 @@ export class User {
     location: string[];
     photo?: string;
 /*     personalRatings?: Rating[];
-    activitiesOrganized?: Activities[];
-    activities?: Activities[];
+    activitiesOrganized?: Activity[];
+    activities?: Activity[];
     messages?: Message[]; */
     creationDate?: Date;
-    messages?: Message[] = [];
 
     constructor(name: string, surname: string, username:string, password: string, phone: string,
-        mail: string, languages: string[], location: string[], photo: string,
-         /* personalRatings: Rating[], activitiesOrganized: Activities[], activities: Activities[], messages: Message[]*/) {
+        mail: string, languages: string[], location: string[], photo: string) {
         
         this.name = name;
         this.surname = surname;
@@ -31,9 +31,5 @@ export class User {
         this.languages = languages;
         this.location = location;
         this.photo = photo;
-/*         this.personalRatings = personalRatings;
-        this.activitiesOrganized = activitiesOrganized;
-        this.activities = activities;
-        this.messages = messages; */
     }   
 }

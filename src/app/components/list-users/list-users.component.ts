@@ -28,7 +28,7 @@ export class ListUsersComponent implements OnInit {
   }
 
   deleteUser(name: string) {
-    const confirmDelete = confirm("Activity "+name+" will be deleted, do you want to continue?");
+    const confirmDelete = confirm("User "+name+" will be deleted, do you want to continue?");
       if(confirmDelete===true){
       this._userService.deleteUser(name).subscribe(data => {
         this.toastr.error('User successfully deleted', 'User deleted');

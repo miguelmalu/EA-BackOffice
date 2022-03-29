@@ -52,7 +52,7 @@ export class CreateActivityComponent implements OnInit {
       const nameActivity:string = this.activityForm.get('name')?.value;
       const description:string = this.activityForm.get('description')?.value;
       const language:string = this.activityForm.get('language')?.value;
-      const location:string[] =  this.activityForm.get('location')?.value.split(',');
+      const location:string[] =  this.activityForm.get('location')?.value.replace(/ /g, "").split(',')
           
       const activity: Activity = {
         name: nameActivity,

@@ -28,12 +28,15 @@ export class ListUsersComponent implements OnInit {
   }
 
   deleteUser(name: string) {
-    this._userService.deleteUser(name).subscribe(data => {
-      this.toastr.error('User successfully deleted', 'User deleted');
-      this.getUsers();
-    }, error => {
-      console.log(error);
-    })
+    const confirmDelete = confirm("Activity "+name+" will be deleted, do you want to continue?");
+      if(confirmDelete===true){
+      this._userService.deleteUser(name).subscribe(data => {
+        this.toastr.error('User successfully deleted', 'User deleted');
+        this.getUsers();
+      }, error => {
+        console.log(error);
+      })
+    }
   }
 
   

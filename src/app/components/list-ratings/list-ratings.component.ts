@@ -30,12 +30,15 @@ export class ListRatingsComponent implements OnInit {
   }
 
   deleteRating(tittle: string){
-    this._ratingService.deleteRating(tittle).subscribe({next:
-      data => {
-      this.toastr.error('Rating successfully deleted', 'Rating deleted');
-      this.getRatings();
-    }, error: error => {
-      console.log(error);
-    }})
+    const confirmDelete = confirm("Activity "+tittle+" will be deleted, do you want to continue?");
+    if(confirmDelete===true){
+      this._ratingService.deleteRating(tittle).subscribe({next:
+        data => {
+        this.toastr.error('Rating successfully deleted', 'Rating deleted');
+        this.getRatings();
+      }, error: error => {
+        console.log(error);
+      }})
+    }
   }
   }

@@ -1,6 +1,7 @@
 import { Rating } from 'src/app/models/rating';
 import { RatingService } from 'src/app/service/rating.service';
-
+import { UserService } from 'src/app/service/user.service';
+import { User } from 'src/app/models/user';
 import { identifierName } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
@@ -23,6 +24,7 @@ export class CreateRatingsComponent implements OnInit {
               private router: Router,
               private toastr: ToastrService,
               private _ratingService: RatingService,
+              private _userService: UserService,
               private aRouter: ActivatedRoute) { 
     this.ratingForm = this.fb.group({
       tittle: ['', Validators.required],

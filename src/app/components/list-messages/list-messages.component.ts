@@ -28,11 +28,16 @@ export class ListMessagesComponent implements OnInit {
   }
 
   deleteMessage(id: string) {
-    this._messageService.deleteMessage(id).subscribe(data => {
-      this.toastr.error('Message successfully deleted', 'Message deleted');
-      this.getMessages();
-    }, error => {
-      console.log(error);
-    })
+
+    const confirmDelete = confirm("Message will be deleted, do you want to continue?");
+    if(confirmDelete===true){
+
+      this._messageService.deleteMessage(id).subscribe(data => {
+        this.toastr.error('Message successfully deleted', 'Message deleted');
+        this.getMessages();
+      }, error => {
+        console.log(error);
+      })
+    }
   }
 }

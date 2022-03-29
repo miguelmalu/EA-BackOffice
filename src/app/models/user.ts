@@ -8,8 +8,8 @@ export class User {
     password: string;
     phone?: string;
     mail?: string;
-    languages?: string[];
-    location?: string[];
+    languages: string[];
+    location: string[];
     photo?: string;
 /*     personalRatings?: Rating[];
     activitiesOrganized?: Activities[];

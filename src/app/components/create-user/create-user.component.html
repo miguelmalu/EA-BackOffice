@@ -44,18 +44,26 @@
                         <div class="mb-3">
                             <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" formControlName="mail"
                                 class="form-control form-control-lg" placeholder="Mail">
-                            <!-- <div class="text-danger"
-                                *ngIf="userForm.get('mail')?.hasError('type') && userForm.get('mail')?.touched">
+                            <div class="text-danger"
+                                *ngIf="userForm.get('mail')?.hasError('pattern') && userForm.get('mail')?.touched">
                                 <span>Wrong format</span>
-                             </div> -->
+                             </div>
                         </div>
                         <div class="mb-3">
                             <input type="text" formControlName="languages"
                                 class="form-control form-control-lg" placeholder="Languages">
+                            <div class="text-danger"
+                                *ngIf="userForm.get('languages')?.hasError('required') && userForm.get('languages')?.touched">
+                                <span>Languages are required</span>
+                            </div>
                         </div>
                         <div class="mb-3">
                             <input type="text" formControlName="location"
                                 class="form-control form-control-lg" placeholder="Location">
+                            <div class="text-danger"
+                                *ngIf="userForm.get('location')?.hasError('required') && userForm.get('location')?.touched">
+                                <span>Locations are required</span>
+                            </div>
                         </div>
                         <div class="mb-3">
                             <input type="text" formControlName="photo"

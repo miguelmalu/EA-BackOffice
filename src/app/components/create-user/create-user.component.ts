@@ -31,8 +31,8 @@ export class CreateUserComponent implements OnInit {
       password: ['', Validators.required],
       phone: [],
       mail: [],
-      languages: [],
-      location: [],
+      languages: ['', Validators.required],
+      location: ['', Validators.required],
       photo: [],
     });
     
@@ -45,6 +45,7 @@ export class CreateUserComponent implements OnInit {
   }
 
   addUser() {
+
     const user: User = {
       name: this.userForm.get('name')?.value,
       surname: this.userForm.get('surname')?.value,
@@ -93,8 +94,8 @@ export class CreateUserComponent implements OnInit {
           password: data.password,
           phone: data.phone /* || null */,
           mail: data.mail /* || null */,
-          languages: data.languages,
-          location: data.location,
+          languages: `${data.languages}`,
+          location: `${data.location}`,
           photo: data.photo,
         })
       })

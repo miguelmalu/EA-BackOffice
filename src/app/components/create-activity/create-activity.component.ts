@@ -100,7 +100,7 @@ export class CreateActivityComponent implements OnInit {
           description: data.description,
           organizer: data.organizer.name,
           language: data.language,
-          location: `${data.location[0]},${data.location[1]}`
+          location: `${data.location}`
         })
       }, error => {
         console.log(error);

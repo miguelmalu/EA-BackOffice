@@ -49,11 +49,11 @@ export class CreateRatingsComponent implements OnInit {
       rating: this.ratingForm.get('rating')?.value,
       description: this.ratingForm.get('description')?.value,
     }
-    if(this.titlerating!==null){
+    if(this.titlerating!=null ){
       //Edit Rating
       this._ratingService.updateRating(this.titlerating, rating).subscribe(data => {
         this.toastr.info('Rating successfully edited!', 'Rating edited');
-        this.router.navigate(['/']);
+        this.router.navigate(['/list-ratings']);
       }, error => {
         console.log(error);
         this.ratingForm.reset();
@@ -64,7 +64,7 @@ export class CreateRatingsComponent implements OnInit {
       if (rating.userRated != null) {
         this._ratingService.addRatingUser(rating).subscribe(data => {
           this.toastr.success('Rating successfully created!', 'Rating created');
-          this.router.navigate(['/']);
+          this.router.navigate(['/list-ratings']);
         }, error => {
           console.log(error);
           this.ratingForm.reset();
@@ -73,7 +73,7 @@ export class CreateRatingsComponent implements OnInit {
       else {
         this._ratingService.addRatingActivity(rating).subscribe(data => {
           this.toastr.success('Rating successfully created!', 'Rating created');
-          this.router.navigate(['/']);
+          this.router.navigate(['/list-ratings']);
         }, error => {
           console.log(error);
           this.ratingForm.reset();

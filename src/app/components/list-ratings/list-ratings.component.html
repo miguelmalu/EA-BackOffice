@@ -8,7 +8,6 @@
                     <table *ngIf="listRatings.length > 0" class="table table-striped mt-3">
                      <thead>
                        <tr>
-                         <th scope="col">ID</th>
                          <th scope="col">Tittle</th>
                          <th scope="col">Rater</th>
                          <th scope="col">User Rated</th>
@@ -20,7 +19,6 @@
                      </thead>
                      <tbody>
                        <tr *ngFor="let rating of listRatings">
-                         <td>{{ rating._id }}</td>
                          <td>{{ rating.tittle }}</td>
                          <td>{{ rating.rater.name }}</td>
                          <td>{{ rating.userRated?.name }}</td>

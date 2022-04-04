@@ -1,0 +1,40 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="card">
+                <div class="card-body text-center">
+                    <span class="title">RATING LIST</span>
+                    <button class="btn btn-success float-end" routerLink="/create-rating">NEW RATING</button>
+                    <table *ngIf="listRatings.length > 0" class="table table-striped mt-3">
+                     <thead>
+                       <tr>
+                         <th scope="col">Tittle</th>
+                         <th scope="col">Rater</th>
+                         <th scope="col">User Rated</th>
+                         <th scope="col">Activity Rated</th>
+                         <th scope="col">Rating</th>
+                         <th scope="col">Description</th>
+                         <th scope="col"></th>
+                       </tr>
+                     </thead>
+                     <tbody>
+                       <tr *ngFor="let rating of listRatings">
+                         <td>{{ rating.tittle }}</td>
+                         <td>{{ rating.rater.name }}</td>
+                         <td>{{ rating.userRated?.name }}</td>
+                         <td>{{ rating.activityRated?.name }}</td>
+                         <td>{{ rating.rating }}</td>
+                         <td>{{ rating.description }}</td>
+                         <td>
+                             <i [routerLink]="['/edit-rating', rating.tittle]" class="fa-solid fa-pen-to-square text-primary"></i>
+                             <i (click)="deleteRating(rating.tittle)" class="fa-solid fa-trash text-danger"></i>
+                         </td>
+                       </tr>
+                     </tbody>
+                   </table>
+                   <h5 style="text-align: start; margin-top: 10px;" *ngIf="listRatings.length == 0">There are no ratings in the database</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>

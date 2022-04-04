@@ -1,0 +1,65 @@
+<div class="container mt-5">
+    <div class="class row">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card">
+                <div class="card-body text-center">
+                    <span class="tittle"> {{ tittle | uppercase }} </span>
+                    <form class="mt-3" [formGroup]="ratingForm" (ngSubmit)="addRating()">
+                        <div class="mb-3">
+                            <input type="text" formControlName="tittle" 
+                                class="form-control form-control-lg" placeholder="Tittle">
+                            <div class="text-danger"
+                                *ngIf="ratingForm.get('tittle')?.hasError('required') && ratingForm.get('tittle')?.touched">
+                                <span>Tittle is required</span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" formControlName="rater" 
+                                class="form-control form-control-lg" placeholder="Rater">
+                            <div class="text-danger"
+                                *ngIf="ratingForm.get('rater')?.hasError('required') && ratingForm.get('rater')?.touched">
+                                <span>Rater is required</span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" formControlName="userRated"
+                                class="form-control form-control-lg" placeholder="User Rated">
+                            <!--<div class="text-danger"
+                                *ngIf="ratingForm.get('userRated')?.hasError('required') && ratingForm.get('userRated')?.touched">
+                                <span>User Rated is required</span>
+                            </div> -->
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" formControlName="activityRated"
+                                class="form-control form-control-lg" placeholder="Activity Rated">
+                            <!--<div class="text-danger"
+                                *ngIf="ratingForm.get('activityRated')?.hasError('required') && ratingForm.get('activityRated')?.touched">
+                                <span>activity Rated is required</span>
+                            </div> -->
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" formControlName="rating"
+                                class="form-control form-control-lg" placeholder="Rating">
+                            <div class="text-danger"
+                                *ngIf="ratingForm.get('rating')?.hasError('required') && ratingForm.get('rating')?.touched">
+                                <span>Rating is required</span>
+                             </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" formControlName="description"
+                                class="form-control form-control-lg" placeholder="Description">
+                            <div class="text-danger"
+                                *ngIf="ratingForm.get('description')?.hasError('required') && ratingForm.get('description')?.touched">
+                                <span>Description is required</span>
+                             </div>
+                        </div>
+                        <div class="mb-3">
+                            <button type="submit" class="btn btn-success btn-lg float-end">SUBMIT</button>
+                            <button routerLink="/list-ratings" class="btn btn-secondary btn-lg float-start">BACK</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

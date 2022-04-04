@@ -8,7 +8,7 @@ import { empty, isEmpty } from 'rxjs';
 
 import { User } from 'src/app/models/user';
 import { UserCredentials } from 'src/app/models/userCredentials';
-import { UserService } from 'src/app/service/user.service';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login-user',
@@ -16,15 +16,15 @@ import { UserService } from 'src/app/service/user.service';
   styleUrls: ['./login-user.component.css']
 })
 export class LoginUserComponent implements OnInit {
-  userForm: FormGroup;
+  loginForm: FormGroup;
   title = "Login";
 
   constructor(private fb: FormBuilder, 
               private router: Router, 
               private toastr: ToastrService,
-              private _userService: UserService,
+              private _authService: AuthService,
               private aRouter: ActivatedRoute) { 
-    this.userForm = this.fb.group({
+    this.loginForm = this.fb.group({
       username: ['', Validators.required],
       password: ['', Validators.required],
     });
@@ -36,16 +36,24 @@ export class LoginUserComponent implements OnInit {
 
   loginUser() {
     const userCredentials: UserCredentials = {
-      username: this.userForm.get('username')?.value,
-      password: this.userForm.get('password')?.value,
+      username: this.loginForm.get('username')?.value,
+      password: this.loginForm.get('password')?.value,
     }
 
-    this._userService.loginUser(userCredentials).subscribe(data => {
-      this.toastr.info('User successfully logged in!', 'User logged in');
-      this.router.navigate(['/']);
+    this._authService.loginUser(userCredentials).subscribe((data: any) => {
+      const res = JSON.parse(data);
+      console.log(res.token);
+      if (res.token == null) {
+        this.toastr.error('The received token is invalid! Try again later', 'Invalid token');
+      } else {
+        localStorage.setItem('token', res.token);
+        console.log(localStorage.getItem('token'));
+        this.toastr.success('User successfully logged in!', 'User logged in');
+        this.router.navigate(['/list-users']);
+      }
     }, error => {
       console.log(error);
-      this.userForm.reset();
+      this.loginForm.reset();
     })
   }
 }

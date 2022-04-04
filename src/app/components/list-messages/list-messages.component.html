@@ -1,0 +1,40 @@
+<div class="container-fluid mt-5">
+  <div class="row justify-content-center">
+      <div class="col">
+            <div class="card">
+                <div class="card-body text-center">
+                    <span class="title">MESSAGE LIST</span>
+                    <button class="btn btn-success float-end" routerLink="/create-message">NEW MESSAGE</button> 
+                    <table *ngIf="listMessages.length > 0" class="table table-striped mt-3">
+                     <thead>
+                       <tr>
+                         <th scope="col">ID</th>
+                         <th scope="col">Message</th>
+                         <th scope="col">Date</th>
+                         <th scope="col">Sender</th>
+                         <th scope="col">Receiver</th>
+                         <th scope="col">Activity</th>
+                         <th scope="col"></th>
+                       </tr>
+                     </thead>
+                     <tbody>
+                       <tr *ngFor="let message of listMessages">
+                         <td>{{ message._id }}</td>
+                         <td>{{ message.message }}</td>
+                         <td>{{ message.sendingDate }}</td>
+                         <td>{{ message.sender.username}}</td>
+                         <td>{{ message.receiver?.username}}</td>
+                         <td>{{ message.activity?.name}}</td>
+                         <td>
+                             <i (click)="deleteMessage(message._id!)" class="fa-solid fa-trash text-danger"></i>
+                         </td>
+                       </tr>
+                     </tbody>
+                   </table>
+                   <h5 style="text-align: start; margin-top: 10px;" *ngIf="listMessages.length == 0">There are no messages in the database</h5>
+                   
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>

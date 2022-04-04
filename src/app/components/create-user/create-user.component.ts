@@ -7,7 +7,7 @@ import { ToastrService } from 'ngx-toastr';
 import { empty, isEmpty } from 'rxjs';
 
 import { User } from 'src/app/models/user';
-import { UserService } from 'src/app/service/user.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-create-user',
@@ -31,6 +31,10 @@ export class CreateUserComponent implements OnInit {
       password: ['', Validators.required],
       phone: [],
       mail: [],
+      languages: ['', Validators.required],
+      location: ['', Validators.required],
+      photo: [],
+      /* roles: [], */
     });
     
     this.name = this.aRouter.snapshot.paramMap.get('name');
@@ -42,6 +46,7 @@ export class CreateUserComponent implements OnInit {
   }
 
   addUser() {
+
     const user: User = {
       name: this.userForm.get('name')?.value,
       surname: this.userForm.get('surname')?.value,
@@ -49,7 +54,13 @@ export class CreateUserComponent implements OnInit {
       password: this.userForm.get('password')?.value,
       phone: this.userForm.get('phone')?.value,
       mail: this.userForm.get('mail')?.value,
+      languages: this.userForm.get('languages')?.value.replace(/ /g, "").split(','),
+      location: this.userForm.get('location')?.value.replace(/ /g, "").split(','),
+      photo: this.userForm.get('photo')?.value,
+      /* roles: this.userForm.get('roles')?.value, */
     }
+
+    console.log(user);
 
     if(this.name !== null){
       // Edit user
@@ -82,9 +93,13 @@ export class CreateUserComponent implements OnInit {
           name: data.name,
           surname: data.surname,
           username: data.username,
-          password: data.password,
-          phone: data.phone || null,
-          mail: data.mail || null,
+          password: data.password, //Else hashed
+          phone: data.phone,
+          mail: data.mail,
+          languages: `${data.languages}`,
+          location: `${data.location}`,
+          photo: data.photo,
+          /* roles: data.roles || null, */
         })
       })
     }

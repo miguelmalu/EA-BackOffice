@@ -1,0 +1,54 @@
+<div class="container mt-5">
+    <div class="class row">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card">
+                <div class="card-body text-center">
+                    <span class="title"> {{ title | uppercase }} </span>
+                    <form class="mt-3" [formGroup]="activityForm" (ngSubmit)="addActivity()">
+                        <div class="mb-3">
+                            <input type="text" formControlName="name" 
+                                class="form-control form-control-lg" placeholder="Activity name">
+                            <div class="text-danger"
+                                *ngIf="activityForm.get('name')?.hasError('required') && activityForm.get('name')?.touched">
+                                <span>Name is required</span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" formControlName="description"
+                                class="form-control form-control-lg" placeholder="Description">                            
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" formControlName="organizer"
+                                class="form-control form-control-lg" placeholder="Organizer">
+                            <div class="text-danger"
+                                *ngIf="activityForm.get('organizer')?.hasError('required') && activityForm.get('organizer')?.touched">
+                                <span>Organizer is required</span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" formControlName="language"
+                                class="form-control form-control-lg" placeholder="Language">
+                            <div class="text-danger"
+                                *ngIf="activityForm.get('language')?.hasError('required') && activityForm.get('language')?.touched">
+                                <span>Language is required</span>
+                             </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" formControlName="location"
+                                class="form-control form-control-lg" placeholder="Location">
+                            <div class="text-danger"
+                                *ngIf="activityForm.get('location')?.hasError('required') && activityForm.get('location')?.touched">
+                                <span>Location is required</span>
+                             </div>
+                        </div>
+                        <div class="mb-3">
+                            <button type="submit" [disabled]="activityForm.invalid" class="btn btn-success btn-lg float-end">SUBMIT</button>
+                            <button routerLink="/list-activities" class="btn btn-secondary btn-lg float-start">BACK</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { User } from '../models/user';
-import { UserCredentials } from '../models/userCredentials';
 
 @Injectable({
   providedIn: 'root'
@@ -30,9 +29,5 @@ export class UserService {
 
   editUser(name: string, user: User): Observable<string> {
     return this.http.put(this.url + '/users/' + name, user, {responseType: 'text'});
-  }
-
-  loginUser(userCredentials: UserCredentials): Observable<string> {
-    return this.http.post(this.url + '/users', userCredentials, {responseType: 'text'}) ;
   }
 }

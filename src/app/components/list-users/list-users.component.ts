@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Toast, ToastrComponentlessModule, ToastrService } from 'ngx-toastr';
 import { User } from 'src/app/models/user';
-import { UserService } from 'src/app/service/user.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-list-users',
@@ -28,11 +28,16 @@ export class ListUsersComponent implements OnInit {
   }
 
   deleteUser(name: string) {
-    this._userService.deleteUser(name).subscribe(data => {
-      this.toastr.error('User successfully deleted', 'User deleted');
-      this.getUsers();
-    }, error => {
-      console.log(error);
-    })
+    const confirmDelete = confirm("User "+name+" will be deleted, do you want to continue?");
+      if(confirmDelete===true){
+      this._userService.deleteUser(name).subscribe(data => {
+        this.toastr.error('User successfully deleted', 'User deleted');
+        this.getUsers();
+      }, error => {
+        console.log(error);
+      })
+    }
   }
+
+  
 }

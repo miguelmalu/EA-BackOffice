@@ -1,0 +1,42 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+            <div class="card">
+                <div class="card-body text-center">
+                    <span class="title">ACTIVITIES LIST</span>
+                    <button class="btn btn-success float-end" routerLink="/create-activity">New Activity</button>
+                    <table *ngIf="listActivities.length > 0" class="table table-striped mt-3">
+                        <thead>
+                            <tr>
+                                <th scope="col">Name</th>
+                                <th scope="col">Language</th>
+                                <th scope="col">Organizer</th>
+                                <th scope="col">Location</th>
+                                <th scope="col">Description</th>
+                                <th scope="col">Participants</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let activity of listActivities">
+                                <td>{{activity.name}}</td>
+                                <td>{{activity.language}}</td>
+                                <td>{{activity.organizer.name}}</td>
+                                <td>{{activity.location}}</td>
+                                <td>{{activity.description | truncate}}</td>
+                                <td>{{activity.users.length}}</td>                                
+                                <td>
+                                    <i (click)="addUserActivity(activity)" class="fa-solid fa-circle-plus text-success"></i>
+                                    <i class="fa-solid fa-pen-to-square text-primary" [routerLink]="['/edit-activity',activity.name]"></i>
+                                    <i (click)="deleteActivity(activity.name)" class="fa-solid fa-trash text-danger"></i>
+                                    <i [routerLink]="['/message-list-activity', activity._id]" class="fa-solid fa-message text-primary"></i>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <h5 style="text-align: start; margin-top: 10px;" *ngIf="listActivities.length == 0">There are no activities yet</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Activity } from '../models/activity';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ActivityService {
 
-  url = 'http://localhost:3000/api/activities';
+  url = environment.apiURL + '/api/activities';
 
   constructor(private http:HttpClient) { }
 

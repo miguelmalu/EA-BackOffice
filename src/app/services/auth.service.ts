@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Role } from '../models/role';
 import { User } from '../models/user';
 import { UserCredentials } from '../models/userCredentials';
@@ -9,7 +10,7 @@ import { UserCredentials } from '../models/userCredentials';
   providedIn: 'root'
 })
 export class AuthService {
-  url = 'http://localhost:3000/api/auth';
+  url = environment.apiURL + '/api/auth';
 
   constructor(private http: HttpClient) { }
 

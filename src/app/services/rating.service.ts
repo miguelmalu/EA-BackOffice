@@ -4,12 +4,13 @@ import { Rating } from '../models/rating';
 import { Activity } from '../models/activity';
 
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RatingService {
-  url = 'http://localhost:3000/api';
+  url = environment.apiURL + '/api';
 
   constructor(private http: HttpClient) { }
 

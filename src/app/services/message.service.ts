@@ -3,12 +3,13 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Message } from '../models/message';
 import { Activity } from '../models/activity';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MessageService {
-  url = 'http://localhost:3000/api';
+  url = environment.apiURL + '/api';
 
   constructor(private http: HttpClient) { }
 

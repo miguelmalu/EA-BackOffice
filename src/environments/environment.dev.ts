@@ -4,8 +4,8 @@
 
 export const environment = {
   production: false,
-  title: 'Local Environment',
-  apiURL: 'http://localhost:3000'
+  title: 'Dev Environment',
+  apiURL: 'http://dev.example.com'
 };
 
 /*

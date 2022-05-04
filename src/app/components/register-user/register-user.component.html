@@ -4,7 +4,7 @@
             <div class="card">
                 <div class="card-body text-center">
                     <span class="title"> {{ title | uppercase }} </span>
-                    <form class="mt-3" [formGroup]="userForm" (ngSubmit)="addUser()">
+                    <form class="mt-3" [formGroup]="userForm" (ngSubmit)="registerUser()">
                         <div class="mb-3">
                             <input type="text" formControlName="name" 
                                 class="form-control form-control-lg" placeholder="Name">
@@ -75,7 +75,7 @@
                         </div> -->
                         <div class="mb-3">
                             <button type="submit" id="myBtn" [disabled]="userForm.invalid" class="btn btn-success btn-lg float-end">SUBMIT</button>
-                            <button routerLink="/list-users" class="btn btn-secondary btn-lg float-start">BACK</button>
+                            <!-- <button routerLink="/list-users" class="btn btn-secondary btn-lg float-start">BACK</button> -->
                         </div>
                     </form>
                 </div>

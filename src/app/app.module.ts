@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 // Components
 import { AppComponent } from './app.component';
@@ -19,8 +19,12 @@ import { CreateActivityComponent } from './components/create-activity/create-act
 import { TruncatePipePipe } from './pipes/truncate-pipe.pipe';
 import { CreateRatingsComponent } from './components/create-ratings/create-ratings.component';
 import { ListRatingsComponent } from './components/list-ratings/list-ratings.component';
-import { ListsComponent } from './components/lists/lists.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
+import { LoginUserComponent } from './components/login-user/login-user.component';
+import { ListRolesComponent } from './components/list-roles/list-roles.component';
+import { CreateRoleComponent } from './components/create-role/create-role.component';
+import { JwtInterceptorInterceptor } from './interceptors/jwt-interceptor.interceptor';
+import { RegisterUserComponent } from './components/register-user/register-user.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +32,7 @@ import { NavigationComponent } from './components/navigation/navigation.componen
     CreateUserComponent,
     CreateMessageComponent,
     ListUsersComponent,
+    NavigationComponent,
     ListMessagesComponent,
     ListMessagesReceiverComponent,
     ListMessagesActivityComponent,
@@ -37,8 +42,10 @@ import { NavigationComponent } from './components/navigation/navigation.componen
     TruncatePipePipe,
     CreateRatingsComponent,
     ListRatingsComponent,
-    ListsComponent,
-    NavigationComponent
+    LoginUserComponent,
+    ListRolesComponent,
+    CreateRoleComponent,
+    RegisterUserComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +55,9 @@ import { NavigationComponent } from './components/navigation/navigation.componen
     ToastrModule.forRoot(),
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

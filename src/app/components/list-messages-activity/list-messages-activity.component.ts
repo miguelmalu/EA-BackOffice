@@ -1,5 +1,5 @@
 import { Message } from 'src/app/models/message';
-import { MessageService } from 'src/app/service/message.service';
+import { MessageService } from 'src/app/services/message.service';
 import { Toast, ToastrComponentlessModule, ToastrService } from 'ngx-toastr';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';

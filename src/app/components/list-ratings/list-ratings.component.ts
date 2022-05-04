@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Toast, ToastrComponentlessModule, ToastrService } from 'ngx-toastr';
 import { Rating } from 'src/app/models/rating';
-import { RatingService } from 'src/app/service/rating.service';
+import { RatingService } from 'src/app/services/rating.service';
 
 @Component({
   selector: 'app-list-ratings',

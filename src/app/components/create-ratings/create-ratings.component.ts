@@ -1,6 +1,6 @@
 import { Rating } from 'src/app/models/rating';
-import { RatingService } from 'src/app/service/rating.service';
-import { UserService } from 'src/app/service/user.service';
+import { RatingService } from 'src/app/services/rating.service';
+import { UserService } from 'src/app/services/user.service';
 import { User } from 'src/app/models/user';
 import { identifierName } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';

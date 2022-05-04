@@ -5,9 +5,9 @@ import { Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { empty, isEmpty } from 'rxjs';
-import { ActivityService } from 'src/app/service/activity.service';
+import { ActivityService } from 'src/app/services/activity.service';
 import { Activity } from 'src/app/models/activity';
-import { UserService } from 'src/app/service/user.service';
+import { UserService } from 'src/app/services/user.service';
 import { User } from 'src/app/models/user';
 
 @Component({

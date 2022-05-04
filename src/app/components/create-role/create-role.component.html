@@ -1,0 +1,26 @@
+<div class="container mt-5">
+    <div class="class row">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card">
+                <div class="card-body text-center">
+                    <span class="title"> {{ title }} </span>
+                    <form class="mt-3" [formGroup]="roleForm" (ngSubmit)="addRole()">
+                        <div class="mb-3">
+                            <input type="text" formControlName="name" 
+                                class="form-control form-control-lg" placeholder="Role name">
+                            <div class="text-danger"
+                                *ngIf="roleForm.get('name')?.hasError('required') && roleForm.get('name')?.touched">
+                                <span>Name is required</span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <button type="submit" [disabled]="roleForm.invalid" class="btn btn-success btn-lg float-end">SUBMIT</button>
+                            <button routerLink="/list-roles" class="btn btn-secondary btn-lg float-start">BACK</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -6,8 +6,8 @@ import { ToastrService } from 'ngx-toastr';
 
 import { Message } from 'src/app/models/message';
 
-import { MessageService } from 'src/app/service/message.service';
-import { UserService } from 'src/app/service/user.service';
+import { MessageService } from 'src/app/services/message.service';
+import { UserService } from 'src/app/services/user.service';
 
 
 @Component({

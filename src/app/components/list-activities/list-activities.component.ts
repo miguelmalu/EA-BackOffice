@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Action } from 'rxjs/internal/scheduler/Action';
 import { Activity } from 'src/app/models/activity';
 import { User } from 'src/app/models/user';
-import { ActivityService } from 'src/app/service/activity.service';
+import { ActivityService } from 'src/app/services/activity.service';
 import { Toast, ToastrComponentlessModule, ToastrService } from 'ngx-toastr';
-import { UserService } from 'src/app/service/user.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-list-activities',

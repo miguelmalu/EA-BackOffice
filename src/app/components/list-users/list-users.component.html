@@ -23,6 +23,7 @@
                           <th scope="col">Activities Organized</th>
                           <th scope="col">Activities</th>
                           <th scope="col">Messages</th> -->
+                          <!-- <th scope="col">Roles</th> -->
                           <th scope="col">Creation Date</th>
                           <th scope="col"></th>
                         </tr>
@@ -33,7 +34,7 @@
                           <td>{{ user.name }}</td>
                           <td>{{ user.surname }}</td>
                           <td>{{ user.username }}</td>
-                          <td style="-webkit-text-security: circle" >{{ user.password }}</td>
+                          <td>{{ user.password | truncate }}</td>
                           <td>{{ user?.phone }}</td>
                           <td>{{ user?.mail }}</td>
                           <td>{{ user.languages }}</td>
@@ -43,12 +44,13 @@
                           <td>{{ user?.activitiesOrganized }}</td>
                           <td>{{ user?.activities }}</td>
                           <td>{{ user?.messages }}</td> -->
+                          <!-- <td>{{ user?.roles }}</td> -->
                           <td>{{ user.creationDate }}</td>
                           <td>
                               <i [routerLink]="['/edit-user', user.name]" class="fa-solid fa-pen-to-square text-primary"></i>
+                              <i (click)="disableUser(user.name)" class="fa-solid fa-eye-slash text-danger"></i>
                               <i (click)="deleteUser(user.name)" class="fa-solid fa-trash text-danger"></i>
                               <i [routerLink]="['/message-list-receiver', user._id]" class="fa-solid fa-message text-primary"></i>
-
                           </td>
                         </tr>
                       </tbody>

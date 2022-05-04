@@ -7,7 +7,7 @@ import { ToastrService } from 'ngx-toastr';
 import { empty, isEmpty } from 'rxjs';
 
 import { User } from 'src/app/models/user';
-import { UserService } from 'src/app/service/user.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-create-user',
@@ -34,6 +34,7 @@ export class CreateUserComponent implements OnInit {
       languages: ['', Validators.required],
       location: ['', Validators.required],
       photo: [],
+      /* roles: [], */
     });
     
     this.name = this.aRouter.snapshot.paramMap.get('name');
@@ -56,6 +57,7 @@ export class CreateUserComponent implements OnInit {
       languages: this.userForm.get('languages')?.value.replace(/ /g, "").split(','),
       location: this.userForm.get('location')?.value.replace(/ /g, "").split(','),
       photo: this.userForm.get('photo')?.value,
+      /* roles: this.userForm.get('roles')?.value, */
     }
 
     console.log(user);
@@ -64,7 +66,7 @@ export class CreateUserComponent implements OnInit {
       // Edit user
       this._userService.editUser(this.name, user).subscribe(data => {
         this.toastr.info('User successfully edited!', 'User edited');
-        this.router.navigate(['/']);
+        this.router.navigate(['/list-users']);
       }, error => {
         console.log(error);
         this.userForm.reset();
@@ -75,7 +77,7 @@ export class CreateUserComponent implements OnInit {
       console.log(user);
       this._userService.addUser(user).subscribe(data => {
         this.toastr.success('User successfully created!', 'User created');
-        this.router.navigate(['/']);
+        this.router.navigate(['/list-users']);
       }, error => {
         console.log(error);
         this.userForm.reset();
@@ -91,12 +93,13 @@ export class CreateUserComponent implements OnInit {
           name: data.name,
           surname: data.surname,
           username: data.username,
-          password: data.password,
+          password: null, //Else hashed; submit will hash the hashed
           phone: data.phone,
           mail: data.mail,
           languages: `${data.languages}`,
           location: `${data.location}`,
           photo: data.photo,
+          /* roles: data.roles || null, */
         })
       })
     }

@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'Seminar7-Client'`, () => {
+  it(`should have as title 'EA-BackOffice'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('Seminar7-Client');
+    expect(app.title).toEqual('EA-BackOffice');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('Seminar7-Client app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('EA-BackOffice app is running!');
   });
 });

@@ -17,7 +17,7 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class LoginUserComponent implements OnInit {
   loginForm: FormGroup;
-  title = "Login";
+  title = "Login User";
 
   constructor(private fb: FormBuilder, 
               private router: Router, 

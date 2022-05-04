@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 // Components
 import { AppComponent } from './app.component';
@@ -24,6 +24,7 @@ import { LoginUserComponent } from './components/login-user/login-user.component
 import { ListRolesComponent } from './components/list-roles/list-roles.component';
 import { CreateRoleComponent } from './components/create-role/create-role.component';
 import { JwtInterceptorInterceptor } from './interceptors/jwt-interceptor.interceptor';
+import { RegisterUserComponent } from './components/register-user/register-user.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { JwtInterceptorInterceptor } from './interceptors/jwt-interceptor.interc
     ListRatingsComponent,
     LoginUserComponent,
     ListRolesComponent,
-    CreateRoleComponent
+    CreateRoleComponent,
+    RegisterUserComponent
   ],
   imports: [
     BrowserModule,

@@ -16,6 +16,10 @@ export class UserService {
   }
 
   deleteUser(name: string): Observable<string> {
+    return this.http.delete(this.url + '/users/forget/' + name, {responseType: 'text'})
+  }
+
+  disableUser(name: string): Observable<string> {
     return this.http.delete(this.url + '/users/' + name, {responseType: 'text'})
   }
 

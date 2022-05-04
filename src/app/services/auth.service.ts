@@ -17,6 +17,10 @@ export class AuthService {
     return this.http.post(this.url + '/login', userCredentials, {responseType: 'text'}) ;
   }
 
+  registerUser(user: User): Observable<string> {
+    return this.http.post(this.url + '/register', user, {responseType: 'text'}) ;
+  }
+
   getRoles(): Observable<Role[]> {
     return this.http.get<Role[]>(this.url + '/roles');
   }

@@ -1,0 +1,85 @@
+<div class="container mt-5">
+    <div class="class row">
+        <div class="col-lg-6 offset-lg-3">
+            <div class="card">
+                <div class="card-body text-center">
+                    <span class="title"> {{ title | uppercase }} </span>
+                    <form class="mt-3" [formGroup]="userForm" (ngSubmit)="registerUser()">
+                        <div class="mb-3">
+                            <input type="text" formControlName="name" 
+                                class="form-control form-control-lg" placeholder="Name">
+                            <div class="text-danger"
+                                *ngIf="userForm.get('name')?.hasError('required') && userForm.get('name')?.touched">
+                                <span>Name is required</span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" formControlName="surname"
+                                class="form-control form-control-lg" placeholder="Surname">
+                            <div class="text-danger"
+                                *ngIf="userForm.get('surname')?.hasError('required') && userForm.get('surname')?.touched">
+                                <span>Surname is required</span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" formControlName="username"
+                                class="form-control form-control-lg" placeholder="Username">
+                            <div class="text-danger"
+                                *ngIf="userForm.get('username')?.hasError('required') && userForm.get('username')?.touched">
+                                <span>Username is required</span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="password" formControlName="password"
+                                class="form-control form-control-lg" placeholder="Password">
+                            <div class="text-danger"
+                                *ngIf="userForm.get('password')?.hasError('required') && userForm.get('password')?.touched">
+                                <span>Password is required</span>
+                             </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" formControlName="phone"
+                                class="form-control form-control-lg" placeholder="Phone">
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" formControlName="mail"
+                                class="form-control form-control-lg" placeholder="Mail">
+                            <div class="text-danger"
+                                *ngIf="userForm.get('mail')?.hasError('pattern') && userForm.get('mail')?.touched">
+                                <span>Wrong format</span>
+                             </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" formControlName="languages"
+                                class="form-control form-control-lg" placeholder="Languages">
+                            <div class="text-danger"
+                                *ngIf="userForm.get('languages')?.hasError('required') && userForm.get('languages')?.touched">
+                                <span>Languages are required</span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" formControlName="location"
+                                class="form-control form-control-lg" placeholder="Location">
+                            <div class="text-danger"
+                                *ngIf="userForm.get('location')?.hasError('required') && userForm.get('location')?.touched">
+                                <span>Locations are required</span>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" formControlName="photo"
+                                class="form-control form-control-lg" placeholder="Photo">
+                        </div>
+<!--                         <div class="mb-3">
+                            <input type="text" formControlName="Roles"
+                                class="form-control form-control-lg" placeholder="Roles">
+                        </div> -->
+                        <div class="mb-3">
+                            <button type="submit" id="myBtn" [disabled]="userForm.invalid" class="btn btn-success btn-lg float-end">SUBMIT</button>
+                            <!-- <button routerLink="/list-users" class="btn btn-secondary btn-lg float-start">BACK</button> -->
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

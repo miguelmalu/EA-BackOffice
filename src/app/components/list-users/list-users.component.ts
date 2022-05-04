@@ -39,5 +39,15 @@ export class ListUsersComponent implements OnInit {
     }
   }
 
-  
+  disableUser(name: string) {
+    const confirmDisable = confirm("User "+name+" will be disabled, do you want to continue?");
+      if(confirmDisable===true){
+      this._userService.disableUser(name).subscribe(data => {
+        this.toastr.error('User successfully disabled', 'User disabled');
+        this.getUsers();
+      }, error => {
+        console.log(error);
+      })
+    }
+  }  
 }

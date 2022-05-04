@@ -6,7 +6,6 @@ import { CreateActivityComponent } from './components/create-activity/create-act
 import { CreateUserComponent } from './components/create-user/create-user.component';
 import { ListActivitiesComponent } from './components/list-activities/list-activities.component';
 import { ListUsersComponent } from './components/list-users/list-users.component';
-import { LoginUserComponent } from './components/login-user/login-user.component';
 import { ListMessagesComponent } from './components/list-messages/list-messages.component';
 import { ListMessagesReceiverComponent } from './components/list-messages-receiver/list-messages-receiver.component';
 import { CreateMessageComponent } from './components/create-message/create-message.component';
@@ -16,12 +15,15 @@ import { CreateRatingsComponent } from './components/create-ratings/create-ratin
 import { CreateRoleComponent } from './components/create-role/create-role.component';
 import { ListRolesComponent } from './components/list-roles/list-roles.component';
 import { UserGuardGuard } from './guards/user-guard.guard';
+import { LoginUserComponent } from './components/login-user/login-user.component';
+import { RegisterUserComponent } from './components/register-user/register-user.component';
 
 
 // Routes
 const routes: Routes = [
   { path: '', redirectTo: '/list-users', pathMatch: 'full'},
   { path: 'login-user', component: LoginUserComponent},
+  { path: 'register-user', component: RegisterUserComponent},
   { path: 'list-users', component: ListUsersComponent, canActivate: [UserGuardGuard]},
   { path: 'create-user', component: CreateUserComponent, canActivate: [UserGuardGuard]},
   { path: 'edit-user/:name', component: CreateUserComponent, canActivate: [UserGuardGuard]},
@@ -37,7 +39,7 @@ const routes: Routes = [
   { path: 'list-messages', component: ListMessagesComponent, canActivate: [UserGuardGuard]},
   { path: 'create-role', component: CreateRoleComponent, canActivate: [UserGuardGuard]},
   { path: 'list-roles', component: ListRolesComponent, canActivate: [UserGuardGuard]},
-  { path: '**', redirectTo: '', pathMatch: 'full'} // In case of a wrong URL, the code redirects to the main path
+  { path: '**', redirectTo: '', pathMatch: 'full', canActivate: [UserGuardGuard]} // In case of a wrong URL, the code redirects to the main path
 ];
 
 @NgModule({

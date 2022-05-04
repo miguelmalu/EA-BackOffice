@@ -93,7 +93,7 @@ export class CreateUserComponent implements OnInit {
           name: data.name,
           surname: data.surname,
           username: data.username,
-          password: data.password, //Else hashed
+          password: null, //Else hashed; submit will hash the hashed
           phone: data.phone,
           mail: data.mail,
           languages: `${data.languages}`,

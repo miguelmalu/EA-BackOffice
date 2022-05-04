@@ -33,6 +33,8 @@
                 </li>
             </ul>
         </div>
-        <button class="btn btn-success float-end" routerLink="/login-user">LOGIN</button>
+        <button *ngIf="!existToken()" class="btn btn-secondary float-end" routerLink="/register-user">REGISTER</button>
+        <button *ngIf="!existToken()" class="btn btn-success float-end" routerLink="/login-user">LOGIN</button>
+        <button *ngIf="existToken()" class="btn btn-secondary float-end" (click)="removeToken()" routerLink="/login-user">LOGOUT</button>
     </div>
 </nav>

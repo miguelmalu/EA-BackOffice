@@ -53,7 +53,6 @@
                   "maximumError": "4kb"
                 }
               ],
-              
               "outputHashing": "all"
             },
             "development": {
@@ -101,9 +100,21 @@
             ],
             "scripts": []
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
   },
-  "defaultProject": "EA-BackOffice"
+  "defaultProject": "EA-BackOffice",
+  "cli": {
+    "defaultCollection": "@angular-eslint/schematics"
+  }
 }
